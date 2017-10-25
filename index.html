@@ -1,0 +1,95 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Do not play this!</title>
+		<script src =  "notIndex.js"></script>
+		<style>
+			body{
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+			#table1{
+				border-collapse:collapse;
+				border = "1" solid "black";
+				background-color = #000000;
+				width = "800px";
+				height = "800px";
+			}
+			#table1 td {
+				border: 2px solid #000000;
+				//width: pixels;
+				//height: 100px;
+				text-align: center;
+			}
+			#bigTable{
+				border-collapse:collapse;
+				border = "1" solid "white";
+				height = "2000px"
+				
+			}
+			#bigTable td{
+				border: 2px solid #000000;
+			}
+			.short{
+				width=60px;
+			}
+		</style>
+	</head>
+	<body>
+		<table id =bigTable>
+			<tr>
+				<td>
+					<table id =table1>
+					</table>
+				</td>
+				<td id =resCell width = 200px>
+					<table id=table2>
+						<tr id=trTut height=200px>
+							<td id=tutorial>
+								<span style="text-align: center;"><h1>Tutorial</h1></span>
+								Connect 3 adjacent sqaure of diverent color, by clicking on them.
+								Blank squares don't give points and have no color.
+								Change the amount of rows and columns if you want to.
+							</td>
+						</tr>
+						<tr id=trScore height =300px>
+							<td id=score>
+								<span style="text-align: center;"><h2>Highscore</h2></span>
+								<table id=tableScore>
+								</table>
+							</td>
+						<tr height = 100px>
+							<td width=200px id=scoreTd>
+								Score: 0
+							</td>
+						</tr>
+						<tr id=trRows height=100px>
+							<td align= center>
+								Rows:<br> <input type="number" id="inRow" class="short" min="5" max="20" value = "5">
+								<br>Cols:<br> <input type="number" id="inCol" class="short" min="5" max="20" value = "5">
+							</td>
+						</tr>
+						<tr id=trReset height=100px>
+							<td align=center>
+								Name in Highscore: 
+								<input type="text" id="hsName" class="short" value = "Joe Dohn" width ="20">
+								<br>
+								<button type="button" onclick="rows=document.getElementById('inRow').value;
+									cols=document.getElementById('inCol').value;newGame();">New Game!</button>
+							</td>
+						</tr>						
+					</table>
+				</td>
+			</tr>
+		</table>
+		<script>
+		loadFromCookie();
+		buildHighscore();
+		buildTable("table1", rows, cols);
+		</script>
+	</body> 
+</html>
